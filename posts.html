@@ -1,0 +1,151 @@
+<html>
+    <head>
+        
+        <Title> Newest Cases</Title>
+        <link rel="icon" type="image/x-icon" href="images/dlsu-icon.ico">
+
+        <!-- BOOTSTRAP -->
+        
+        <!-- CSS only -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        
+         <!-- JavaScript Bundle with Popper -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        
+         <!-- BOOTSTRAP -->
+
+        <!-- JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- JQUERY -->
+
+        <!-- chart -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <!-- chart -->
+
+        <link rel="stylesheet" href="css/index.css">
+
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+    </head>
+
+    <!-- SPACE -->
+    
+    <body>
+    <div id="page-container">
+
+    <!-- NAVBAR -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="index.html">
+                <img src="images/dlsu-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                CTracer
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="index.html" style="color:black">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="daily.html" style="color:black">Daily</a>
+                            </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="weekly.html" style="color:black">Weekly</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" >New Cases<span class="sr-only">(current)</span></a>
+                        </li>   
+                    </ul>
+            
+
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="signin.html" style="color:black">Account</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    <!-- NAVBAR -->
+    <!-- <div class="container"> -->
+    <div class="posts-row">
+            <div class="post">
+                <h1 class="post_title"> Newest COVID-19 Cases</h1>
+                <div class="content">
+                    <h3>Santi, Andre</h3>
+                    <h6>20</h6>
+                    <h6>12/07/22</h6>
+                    <hr>
+                    <section id="post1">
+                        At first I was experiencing mild cough, but it didn't really bother me that much as I was still able to move like I normally do. The next day I started very exhausted even if my day has just started and I also started to feel cold. Soon enough I had a fever for an entire day, hence giving me the impression that I was already infected by COVID-19.
+                    </section>
+                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
+                    <a href="delete.html" role="button" class="btn btn-warning">Delete Post</a>
+                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
+                    
+                </div>
+                <div class="content">
+                    <h3>Reinhardt, John</h3>
+                    <h6>19</h6>
+                    <h6>26/05/22</h6>
+                    <hr>
+                    <section>
+                        I had a weird type of dizziness. Like I was on water, everything moved around me. It did not end there as I started to feel much worse. I lost my sense of smell and taste and it lasted for almost a week. When the dizziness started to disappear I started to feel very cold and numb. This all happened while I had no sense of smell and taste which made my daily routine extremely difficult to handle. 
+                    </section>
+                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
+                    <a href="delete.html" role="button" class="btn btn-warning">Delete Post</a>
+                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
+                </div>
+                <div class="content">
+                    <h3>Cruz, Francis Simon</h3>
+                    <h6>23</h6>
+                    <h6>05/10/22</h6>
+                    <hr>
+                    <section>
+                        It started when my throat suddenly became soar after coming home from a party. At first I thought it was just because of the alcohol so it didn't really bother me that much. But two days after, I suddenly got struck with a high fever with a temperature boiling over 38°C. My mother then tested me if I was positive for COVID-19, and true enough the results proved that I indeed was infected by the virus.
+                    </section>
+                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
+                    <a href="delete.html" role="button" class="btn btn-warning">Delete Post</a>
+                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
+                </div>
+                <div class="content">
+                    <h3>Coloma, Marc Vicente</h3>
+                    <h6>32</h6>
+                    <h6>07/2/22</h6>
+                    <hr>
+                    <section>
+                        My symptoms were very mild. I only experienced loss of smell then afterwards I tested myself only to find out I am already positive.
+                    </section>
+                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
+                    <a href="delete.html" role="button" class="btn btn-warning">Delete Post</a>
+                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
+                </div>
+                <div class="content">
+                    <h3>Aquino, Ramon Quarter</h3>
+                    <h6>20</h6>
+                    <h6>09/09/22</h6>
+                    <hr>
+                    <section>
+                        I did not experience any sorts of symptoms but I still tested positive.
+                    </section>
+                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
+                    <a href="delete.html" role="button" class="btn btn-warning">Delete Post</a>
+                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
+                </div>
+        </div>
+        </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="footer">
+        Copyright©2022. All Rights Reserved SanSerSan | Manila PH
+    </div>
+</div>
+
+    </body>
+    <script src="js/entry.js"></script>
+
+</html>

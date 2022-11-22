@@ -1,0 +1,117 @@
+<html>
+    <head>
+        
+        <Title> Covid19 Tracker</Title>
+        <link rel="icon" type="image/x-icon" href="images/dlsu-icon.ico">
+
+        <!-- BOOTSTRAP -->
+        
+        <!-- CSS only -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        
+         <!-- JavaScript Bundle with Popper -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        
+         <!-- BOOTSTRAP -->
+
+        <!-- JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- JQUERY -->
+
+        <!-- chart -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <!-- chart -->
+
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/entry.css">
+        <script src="js/entry.js"></script>
+
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+    </head>
+
+    <!-- SPACE -->
+    
+    <body>
+    <div id="page-container">
+
+    <!-- NAVBAR -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="index.html">
+                <img src="images/dlsu-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                CTracer
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="index.html" style="color:black">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="daily.html" style="color:black">Daily</a>
+                            </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="weekly.html" style="color:black">Weekly</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="posts.html" style="color:black">New Cases</a>
+                        </li>  
+                    </ul>
+            
+
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="signin.html" style="color:black">Account</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    <!-- NAVBAR -->
+    <!-- <div class="container"> -->
+    <div class="row">
+            <div class="form-layout">
+                <form class="form">
+                    <h1>Register your COVID-19 case to CTracer</h1>
+                    <ul>
+                    <li>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" maxlength="50">
+                        <span>Enter your full name(Starting with last name)</span>
+                    </li>
+                    <li>
+                        <label for="age">Age</label>
+                        <input type="age" name="age" maxlength="2">
+                        <span>Enter your current age</span>
+                    </li>
+                    <li>
+                        <label for="date">Date of Acquisition</label>
+                        <input type="date" name="date">
+                        <span>Date of confirmed acquisition of the virus</span>
+                    </li>
+                    <li>
+                        <label for="bio">Symptoms</label>
+                        <textarea name="bio" onkeyup="expand_textarea(this)"></textarea>
+                        <span>What were the different symptoms you were experiencing?</span>
+                    </li>
+                    <li>
+                        <a href="posts.html" class="btn btn-success">Submit</a>
+                    </li>
+                    </ul>
+                    </form>
+            </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="footer">
+        Copyright©2022. All Rights Reserved SanSerSan | Manila PH
+    </div>
+</div>
+
+<!-- </div> -->
+
+    </body>
+</html>
