@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <Title> Daily Report</Title>
+        <link rel="icon" type="image/x-icon" href="/public/assets/images/dlsu-icon.ico">
+
+        <!-- BOOTSTRAP -->
+        
+        <!-- CSS only -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        
+         <!-- JavaScript Bundle with Popper -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        
+         <!-- BOOTSTRAP -->
+
+        <!-- JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- JQUERY -->
+
+        <!-- chart -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <!-- chart -->
+
+        <link href= "/public/assets/css/index.css" rel="stylesheet" />
+
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+    </head>
+
+    <!-- SPACE -->
+    
+    <body>
+        <div id="page-container">
+
+    <!-- NAVBAR -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">
+                <img src="/public/assets/images/dlsu-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                CTracer
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="/" style="color:black">Home </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" >Daily <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/weekly" style="color:black">Weekly</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/posts" style="color:black">New Cases</a>
+                        </li>
+                    </ul>
+            
+
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signin" style="color:black">Account</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    <!-- NAVBAR -->
+    <!-- <div class="container"> -->
+    <div class="row">
+            <div class="column">
+                <H1 style="text-align: center"> Daily Cases</H1>
+                <!-- GRAPH DAILY-->
+                <canvas id="myChart" style="width:100%;max-width:600px;margin:auto"></canvas>
+                <script>
+                    var xValues = ['26/09/22','27/09/22','29/09/22','30/09/22','01/10/22','02/10/22'];
+                    
+                    new Chart("myChart", {
+                    type: "line",
+                    data: {
+                        labels: xValues,
+                        datasets: [{ 
+                        data: [37082,38315,28172,29118,29528,28872],
+                        borderColor: "red",
+                        fill: false
+                        // }, { 
+                        //   data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+                        //   borderColor: "green",
+                        //   fill: false
+                        // }, { 
+                        //   data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                        //   borderColor: "blue",
+                        //   fill: false
+                        }]
+                    },
+                    options: {
+                        legend: {display: false}
+                    }
+                    });
+                    </script>
+                <!-- GRAPH DAILY-->
+            </div>
+
+            <div class="column">
+                <h1 style="text-align:left"> Data Analysis </h1>
+                    <!-- current daily -->
+                    <table class="inline">
+                        <tr>
+                            <th> Current daily additional cases:</th>
+                            <td> 1,000 </td>
+                        </tr>
+    
+                        <tr>
+                            <th> Current daily additional death:</th>
+                            <td> 56 </td>
+                        </tr>
+    
+                        <tr>
+                            <th> Current daily additional recoveries:</th>
+                            <td> 3,000 </td>
+                        </tr>
+    
+                        <tr>
+                            <th> Current daily additional Severe and Critical cases:</th>
+                            <td> 3 </td>
+                        </tr>
+    
+    
+    
+                    </table>
+                    
+                    <!-- previous daily -->
+                    <table class="inline" >
+                       
+                        <tr>
+                            <th> Previous daily additional cases:</th>
+                            <td> 2,000 </td>
+                        </tr>
+    
+                        <tr>
+                            <th> Previous daily additional death:</th>
+                            <td> 30 </td>
+                        </tr>
+    
+                        <tr>
+                            <th> Previous daily additional recoveries:</th>
+                            <td> 2,000 </td>
+                        </tr>
+    
+                        <tr>
+                            <th> Previous daily additional Severe and Critical cases:</th>
+                            <td> 5 </td>
+                        </tr>
+    
+                    </table>
+            </div>
+            
+        <!-- row div -->
+    <!-- end of row 1 -->
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+
+    <div class="weeklydatacont">
+        <table>
+            <tr>
+                <td onclick="showmodal()"> NATIONAL COVID-19 CASE BULLETIN OCTOBER 3, 2022 </td>
+                <td onclick="showmodal()"> NATIONAL COVID-19 CASE BULLETIN OCTOBER 4, 2022 </td>
+                <td onclick="showmodal()"> NATIONAL COVID-19 CASE BULLETIN OCTOBER 5, 2022 </td>
+                <td onclick="showmodal()"> NATIONAL COVID-19 CASE BULLETIN OCTOBER 6, 2022 </td>
+            </tr>
+            <tr>
+                <td onclick="showmodal()"> NATIONAL COVID-19 CASE BULLETIN OCTOBER 7, 2022 </td>
+                <td onclick="showmodal()"> NATIONAL COVID-19 CASE BULLETIN OCTOBER 8, 2022 </td>
+                <td onclick="showmodal()"> NATIONAL COVID-19 CASE BULLETIN OCTOBER 9, 2022 </td>
+                <td onclick="showmodal()"> NATIONAL COVID-19 CASE BULLETIN OCTOBER 10, 2022 </td>
+
+
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="footer">
+        Copyright©2022. All Rights Reserved SanSerSan | Manila PH
+    </div>
+<!-- </div> -->
+    </div>
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <img src="https://doh.gov.ph/sites/default/files/NationalCOVID-19CaseBulletin10102022.jpg" />
+    </div>
+  
+  </div>
+
+    
+    </body>
+    <script src="js/index.js"></script>
+
+</html>

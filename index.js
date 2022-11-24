@@ -23,6 +23,21 @@ app.get('/signin', (req,res) => {
     res.render('signin');
 })  
 
+// daily page
+app.get('/daily', (req,res) => {
+    res.render('daily');
+})  
+
+// weekly page
+app.get('/weekly', (req,res) => {
+    res.render('weekly');
+})
+
+// posts page
+app.get('/posts', (req,res) => {
+    res.render('posts');
+})
+
 // access public folder
 app.use('/public', express.static('public'));
 
