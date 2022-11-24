@@ -2,18 +2,25 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser'); 
+const router = express.Router();
 
 const app = express()
 
-app.set('view engine','ejs')
+app.set('views', './views');
+app.set('view engine','ejs');
 
 app.get('/',(req,res) => {
     res.render("index")
 })
 
+// index / main page
+app.get('/index', (req,res) => {
+    res.render('index');
+})  
+
 // signin page
 app.get('/signin', (req,res) => {
-    res.render('views/signin');
+    res.render('signin');
 })  
 
 // access public folder
