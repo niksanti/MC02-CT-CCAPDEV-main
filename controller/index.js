@@ -17,7 +17,8 @@ router.use("/cases", require("./cases"));
 
 
 const User = require("../models/usersModel");
-const Cases = require("../models/caseModel");
+const ACases = require("../models/approvedcaseModel");
+
 
 
 
@@ -57,13 +58,15 @@ router.get("/weekly", function (req, res) {
 
 router.get("/posts", function (req, res) {
 
-  Cases.find({}, function(err, rows) {
+  ACases.find({}, function(err, rows) {
     if (err){
         console.log(err);
     } else {
         res.render('posts', {
             loggedin : req.session.loggedin,
-            cases : rows
+            cases : rows,
+            email : req.session.email,
+            role : req.session.role,
         });
     }
   });
@@ -110,4 +113,26 @@ app.use(
   })
 );
 
+
+ // Add Sample Data!!
+ const sampleData = ((req,res) =>{   
+        
+        
+  User.findOne({name: "admin"}, function(err, users){
+      if(!users){
+
+          //the password of sample accounts is 12345678
+          User.create({
+            email: "admin@admin",
+            password: "$2b$10$qF9cyybIkHoXYdkLS1FpK.bdaS5DrcgrvicOpRC2KNhyQEZKHH302",
+
+                              name: "admin", 
+                              role: "Admin"
+                            })
+                              
+          console.log("Sample Accounts are added!!");
+      }
+  })
+})
+sampleData();
 module.exports = router;

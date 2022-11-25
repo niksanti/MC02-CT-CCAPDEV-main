@@ -18,13 +18,13 @@ var post = new mongoose.Schema({
         required: true
     },
 
-    body:{
+    textbody:{
         type: String,
         required: true
     },
 });
 
 
-const usercase = mongoose.model("Cases", post);
+const appusercase = mongoose.model("approvedCases", post);
 
-module.exports =  usercase;
+module.exports =  appusercase;

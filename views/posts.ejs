@@ -75,84 +75,40 @@
             </nav>
     <!-- NAVBAR -->
     <!-- <div class="container"> -->
-    <form action="../cases/create" method="post">
-        <button  class="btn btn-warning"> Create Post </button>
-    </form>
+
     <div class="posts-row">
             <div class="post">
                 <h1 class="post_title"> Newest COVID-19 Cases</h1>
+                <div style="margin:auto">
+                <% if(loggedin) { %>
+                <form action="../cases/create" method="post" style="width:150px;margin:auto" >
+                    <button  class="btn btn-warning" > Create Post </button>
+                </form>
+                <% } %>
 
-                <div class="content">
-                    <h3>Santi, Andre</h3>
-                    <h6>20</h6>
-                    <h6>12/07/22</h6>
-                    <hr>
-                    <section>
-                        At first I was experiencing mild cough, but it didn't really bother me that much as I was still able to move like I normally do. The next day I started very exhausted even if my day has just started and I also started to feel cold. Soon enough I had a fever for an entire day, hence giving me the impression that I was already infected by COVID-19.
-                    </section>
-                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
-                    <a href="/delete" role="button" class="btn btn-warning">Delete Post</a>
-                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
-                    
+                <% if(role == "Admin") { %>
+                    <form action="../cases/approval" method="get" style="width:150px; margin:auto" >
+                        <button  class="btn btn-warning" > Case Approval </button>
+                    </form>
+                    <% } else %>
                 </div>
+
                 <% cases.forEach(function(cases){ %>
                     <div class="content">
                     <h3><%= cases.name %></h3>
                     <h6><%= cases.date%></h6>
                     <hr>
-                    <section><%= cases.textbody %></section>
-                    </div>
+                    <form action="../cases/deletepost" method="POST">
+                    <section ><%= cases.textbody %></section> 
+                    <textarea cols="120" rows="6" id="body" name="bodytext" hidden><%= cases.textbody %></textarea>
+                    <% if(cases.email == email || role == "Admin") { %>
+                    <button class="btn btn-warning">Delete Post</button>
+                    <% } %>
+                    </form>
+                </div>
                          
                 <% }); %>
 
-                <div class="content">
-                    <h3>Reinhardt, John</h3>
-                    <h6>19</h6>
-                    <h6>26/05/22</h6>
-                    <hr>
-                    <section>
-                        I had a weird type of dizziness. Like I was on water, everything moved around me. It did not end there as I started to feel much worse. I lost my sense of smell and taste and it lasted for almost a week. When the dizziness started to disappear I started to feel very cold and numb. This all happened while I had no sense of smell and taste which made my daily routine extremely difficult to handle. 
-                    </section>
-                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
-                    <a href="/delete" role="button" class="btn btn-warning">Delete Post</a>
-                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
-                </div>
-                <div class="content">
-                    <h3>Cruz, Francis Simon</h3>
-                    <h6>23</h6>
-                    <h6>05/10/22</h6>
-                    <hr>
-                    <section>
-                        It started when my throat suddenly became soar after coming home from a party. At first I thought it was just because of the alcohol so it didn't really bother me that much. But two days after, I suddenly got struck with a high fever with a temperature boiling over 38°C. My mother then tested me if I was positive for COVID-19, and true enough the results proved that I indeed was infected by the virus.
-                    </section>
-                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
-                    <a href="/delete" role="button" class="btn btn-warning">Delete Post</a>
-                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
-                </div>
-                <div class="content">
-                    <h3>Coloma, Marc Vicente</h3>
-                    <h6>32</h6>
-                    <h6>07/2/22</h6>
-                    <hr>
-                    <section>
-                        My symptoms were very mild. I only experienced loss of smell then afterwards I tested myself only to find out I am already positive.
-                    </section>
-                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
-                    <a href="/delete" role="button" class="btn btn-warning">Delete Post</a>
-                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
-                </div>
-                <div class="content">
-                    <h3>Aquino, Ramon Quarter</h3>
-                    <h6>20</h6>
-                    <h6>09/09/22</h6>
-                    <hr>
-                    <section>
-                        I did not experience any sorts of symptoms but I still tested positive.
-                    </section>
-                    <button onclick="editButton()" class="btn btn-warning"> Edit </button>
-                    <a href="/delete" role="button" class="btn btn-warning">Delete Post</a>
-                    <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
-                </div>
         </div>
         </div>
     <br>

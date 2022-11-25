@@ -79,18 +79,39 @@
     <div class="posts-row">
             <div class="post">
                 <h1 class="post_title"> Newest COVID-19 Cases</h1>
-                <div class="content">
-                    <form action="../cases/submitpost" method="POST">
-                    <h3><%= name %></h3>
-                    <h6><%= currdate%></h6>
+                <div style="margin:auto">
+             
+                </div>
+               
+                <% cases.forEach(function(cases){ %>
+                    <div class="content">
+                    <h3><%= cases.name %></h3>
+                    <h6><%= cases.date%></h6>
                     <hr>
-                    <textarea cols="120" rows="6" id="body" name="body"></textarea>
-                    <br>
-                    <button class="btn btn-warning"> Create</button>
+                    <section ><%= cases.textbody %></section> 
+
+                    <form action="../cases/deletepostapp" method="POST">
+                    <textarea cols="120" rows="6" id="body" name="bodytext" hidden><%= cases.textbody %></textarea>
+                    
+                    <button class="btn btn-warning">Delete Post</button>
+                    
+                    </form>
+                    <form action="../cases/approve" method="POST">
+
+                       
+
+                        <textarea cols="120" rows="6" id="body" name="bodytext" hidden><%= cases.textbody %></textarea>
+                        <button class="btn btn-warning">Approve Post</button>
+
+                        <input type="email" name="email" value="<%= cases.email %>" hidden></input>
+                        <input type="text" name="name" value="<%=cases.name%>" hidden></input>
+    
                     </form>
                 </div>
-        </div>
-        </div>
+                         
+                <% }); %>
+            </div>
+    </div>
     <br>
     <br>
     <br>
