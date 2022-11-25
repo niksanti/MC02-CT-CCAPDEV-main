@@ -50,16 +50,16 @@
       <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-              <a class="nav-link" href="index.ejs" style="color:black">Home </a>
+              <a class="nav-link" href="/" style="color:black">Home </a>
               </li>
               <li class="nav-item">
-              <a class="nav-link" href="daily.ejs" style="color:black">Daily </a>
+              <a class="nav-link" href="/daily" style="color:black">Daily </a>
               </li>
               <li class="nav-item">
-              <a class="nav-link" href="weekly.ejs" style="color:black">Weekly</a>
+              <a class="nav-link" href="/weekly" style="color:black">Weekly</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="posts.ejs" style="color:black">New Cases</a>
+                <a class="nav-link" href="/posts" style="color:black">New Cases</a>
               </li>
           </ul>
 
@@ -74,7 +74,7 @@
   </nav>
   <!-- NAVBAR -->
   <main class="form-signin w-100 m-auto text-center">
-    <form onsubmit="return validatecreds()">
+    <form action="../users/login" method="POST">
       <div class="p">
       <img class="mb-4" src="/public/assets/images/dlsu-logo.png" alt="DLSUlogo" width="80" height="80"> 
       COVID-19 TRACKER</div>

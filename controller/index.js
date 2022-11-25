@@ -13,8 +13,12 @@ const urlencoder = bodyparser.urlencoded({
 
 
 router.use("/users", require("./users"));
+router.use("/cases", require("./cases"));
+
 
 const User = require("../models/usersModel");
+const Cases = require("../models/caseModel");
+
 
 
 router.get("/", function (req, res) {
@@ -45,12 +49,23 @@ router.get("/posts", function (req, res) {
 });
 
 router.get("/signin", function (req, res) {
-    res.render("register.ejs", {
+    res.render("signin.ejs", {
         // title : 'CRUD Operation using NodeJS / ExpressJS / MySQL',
     });
-    console.log("register");
+    console.log("sign in");
 
 });
+
+
+router.get("/register", function (req, res) {
+  res.render("register.ejs", {
+    error: '',
+  
+  });
+  console.log("register");
+
+});
+
 
 
 

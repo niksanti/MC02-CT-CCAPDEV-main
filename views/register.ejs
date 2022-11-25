@@ -84,10 +84,13 @@
 
     <h2 class="h3 mb-3 fw-normal">Create Account</h2>
 
+    <h3 style="text-align:center;color:red"><%= error%></h3>
+
+
 
     <div class="container form-floating">
 
-        <form action="users/save" method="post">
+        <form action="../users/save" method="post">
           <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="email" placeholder="Enter Name" name="name" required>
@@ -108,7 +111,7 @@
 
   <!-- </form> -->
   </br>
-    <a href="signin.html" role="button" class="btn btn-light">Back to Sign in</a>
+    <a href="" role="button" class="btn btn-light">Back to Sign in</a>
     
     
         <p class="mt-5 mb-3 text-muted">&copy; Copyright 2022. All Rights Reserved SanSerSan | Manila PH</p>
