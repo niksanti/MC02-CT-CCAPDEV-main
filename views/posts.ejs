@@ -63,7 +63,12 @@
 
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/signin" style="color:black">Account</a>
+                            <% if (loggedin) { %>
+                                <a class="nav-link" href="/signout" style="color:black">Sign out</a>
+                                <% } else { %>
+                                <a class="nav-link" href="/signin" style="color:black">Sign in</a>
+                                <% } %>
+
                         </li>
                     </ul>
                 </div>
@@ -76,12 +81,13 @@
     <div class="posts-row">
             <div class="post">
                 <h1 class="post_title"> Newest COVID-19 Cases</h1>
+
                 <div class="content">
                     <h3>Santi, Andre</h3>
                     <h6>20</h6>
                     <h6>12/07/22</h6>
                     <hr>
-                    <section id="post1">
+                    <section>
                         At first I was experiencing mild cough, but it didn't really bother me that much as I was still able to move like I normally do. The next day I started very exhausted even if my day has just started and I also started to feel cold. Soon enough I had a fever for an entire day, hence giving me the impression that I was already infected by COVID-19.
                     </section>
                     <button onclick="editButton()" class="btn btn-warning"> Edit </button>
@@ -89,6 +95,16 @@
                     <button onclick="saveEdit()" id="savebutton1" class="buttonhide btn btn-warning"> Save </button>
                     
                 </div>
+                <% cases.forEach(function(cases){ %>
+                    <div class="content">
+                    <h3><%= cases.name %></h3>
+                    <h6><%= cases.date%></h6>
+                    <hr>
+                    <section><%= cases.textbody %></section>
+                    </div>
+                         
+                <% }); %>
+
                 <div class="content">
                     <h3>Reinhardt, John</h3>
                     <h6>19</h6>

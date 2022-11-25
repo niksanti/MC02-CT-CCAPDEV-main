@@ -18,7 +18,7 @@ var post = new mongoose.Schema({
         required: true
     },
 
-    body:{
+    textbody:{
         type: String,
         required: true
     },

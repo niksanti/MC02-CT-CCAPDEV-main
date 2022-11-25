@@ -22,35 +22,62 @@ const Cases = require("../models/caseModel");
 
 
 router.get("/", function (req, res) {
-    res.render("index.ejs");
+
+    res.render("index.ejs",{
+      loggedin : req.session.loggedin,
+    });
     console.log("index");
+    // console.log(req.session.name);
+
 
 });
 
 
 router.get("/daily", function (req, res) {
-    res.render("daily.ejs");
+ 
+
+    res.render("daily.ejs",{
+      loggedin : req.session.loggedin,
+    });
     console.log("dailycheck");
 
 });
 
 
 router.get("/weekly", function (req, res) {
-    res.render("weekly.ejs");
+  
+
+    res.render("weekly.ejs",{
+      loggedin : req.session.loggedin,
+    });
     console.log("weekly");
 
 });
 
 
 router.get("/posts", function (req, res) {
-    res.render("posts.ejs");
+
+  Cases.find({}, function(err, rows) {
+    if (err){
+        console.log(err);
+    } else {
+        res.render('posts', {
+            loggedin : req.session.loggedin,
+            cases : rows
+        });
+    }
+  });
+    // res.render("posts.ejs",{
+
+    // });
     console.log("posts");
 
 });
 
 router.get("/signin", function (req, res) {
+  
     res.render("signin.ejs", {
-        // title : 'CRUD Operation using NodeJS / ExpressJS / MySQL',
+
     });
     console.log("sign in");
 
@@ -66,6 +93,14 @@ router.get("/register", function (req, res) {
 
 });
 
+router.get("/signout", urlencoder, (req, res) => {
+  req.session.destroy();
+    res.render("index.ejs",{
+      loggedin: false,
+    });
+    console.log("index signout");
+
+});
 
 
 

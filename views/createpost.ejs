@@ -63,7 +63,12 @@
 
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/signin" style="color:black">Account</a>
+                            <% if (loggedin) { %>
+                                <a class="nav-link" href="/signout" style="color:black">Sign out</a>
+                                <% } else { %>
+                                <a class="nav-link" href="/signin" style="color:black">Sign in</a>
+                                <% } %>
+
                         </li>
                     </ul>
                 </div>
@@ -77,13 +82,14 @@
             <div class="post">
                 <h1 class="post_title"> Newest COVID-19 Cases</h1>
                 <div class="content">
-                    <h3>Santi, Andre</h3>
+                    <form action="../cases/submitpost" method="POST">
+                    <h3><%= name %></h3>
                     <h6><%= currdate%></h6>
                     <hr>
-                    <textarea name="paragraph_text" cols="120" rows="6"></textarea>
+                    <textarea cols="120" rows="6" id="body" name="body"></textarea>
                     <br>
                     <button class="btn btn-warning"> Create</button>
-                    
+                    </form>
                 </div>
         </div>
         </div>
