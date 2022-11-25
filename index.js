@@ -13,7 +13,7 @@ app.get('/',(req,res) => {
     res.render("index")
 })
 
-// index / main page
+// index / main page 
 app.get('/index', (req,res) => {
     res.render('index');
 })  
@@ -23,8 +23,31 @@ app.get('/signin', (req,res) => {
     res.render('signin');
 })  
 
+// register page
+app.get('/register', (req,res) => {
+    res.render('register');
+}) 
+
 // access public folder
 app.use('/public', express.static('public'));
+
+// router.post('/register', function(req, res){
+//     var username = req.body.username;
+//     var password = req.body.password;
+//     var firstname = req.body.firstname;
+//     var lastname = req.body.lastname;
+
+//     var newuser = new User();
+//     newuser.username = username;
+//     newuser.password = password;
+//     newuser.firstname = firstname;
+//     newuser.lastname = lastname;
+
+
+
+
+
+//})
 
 // Start  the server
 app.listen(3000,() => {
