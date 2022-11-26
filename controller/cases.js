@@ -101,7 +101,7 @@ router.post("/deletepostapp", urlencoder, (req, res) => {
    console.log("deleted");
   });
 
-  res.redirect('/posts')
+  res.redirect('../cases/approval')
 
   console.log("deleting");
 
@@ -155,6 +155,7 @@ router.post("/approve", urlencoder, (req, res) => {
           })
 
           Cases.deleteOne({textbody: body}, function(err){
+           
             console.log("deleted");
            });
       });

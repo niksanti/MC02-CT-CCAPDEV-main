@@ -22,8 +22,6 @@ const Cases = require("../models/caseModel");
 
 
 
-
-
 router.get("/", function (req, res) {
 
     res.render("index.ejs",{
@@ -198,7 +196,7 @@ app.use(
                           email: "chadaesan@gmail.com",
                            name: "Cha Sants",
                            date:20221220, 
-                           textbody:"Testing Case"},
+                           textbody:"Testing case"},
 
                            {email: "toitoitoit@gmail.com",
                            name: "Jake Peralta",
