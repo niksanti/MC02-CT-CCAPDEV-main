@@ -79,46 +79,16 @@
     <div class="posts-row">
             <div class="post">
                 <h1 class="post_title"> Newest COVID-19 Cases</h1>
-                <div style="margin:auto">
-                <% if(loggedin) { %>
-                <form action="../cases/create" method="post" style="width:150px;margin:auto" >
-                    <button  class="btn btn-warning" > Create Post </button>
-                </form>
-                <% } %>
-
-                <% if(role == "Admin") { %>
-                    <form action="../cases/approval" method="get" style="width:150px; margin:auto" >
-                        <button  class="btn btn-warning" > Case Approval </button>
-                    </form>
-                    <% } else %>
-                </div>
-
-                <% cases.forEach(function(cases){ %>
-                    <div class="content">
-                    <h3><%= cases.name %></h3>
-                    <h6><%= cases.date%></h6>
+                <div class="content">
+                    <form action="../cases/updpost" method="POST">
+                    <h3><%= name %></h3>
+                    <h6><%= currdate%></h6>
                     <hr>
-                    <form action="../cases/deletepost" method="POST">
-                    <section ><%= cases.textbody %></section> 
-                    <textarea cols="120" rows="6" id="body" name="bodytext" hidden><%= cases.textbody %></textarea>
-                    <% if(cases.email == email || role == "Admin") { %>
-                    <button class="btn btn-warning">Delete Post</button>
-                    <% } %>
-
+                    <textarea cols="120" rows="6" id="body" name="body"><%= body %></textarea>
+                    <br>
+                    <button class="btn btn-warning"> Update </button>
                     </form>
-
-                    <form action="../cases/editpost" method="POST">
-                        <textarea cols="120" rows="6" id="body" name="bodytext" hidden><%= cases.textbody %></textarea>
-
-                        <% if(cases.email == email && role == "Admin") { %>
-                            <button class="btn btn-warning">Edit Post</button>
-                        <% } %>
-    
-                        </form>
                 </div>
-                         
-                <% }); %>
-
         </div>
         </div>
     <br>

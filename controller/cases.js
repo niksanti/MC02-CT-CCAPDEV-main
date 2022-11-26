@@ -30,6 +30,7 @@ router.post("/create", urlencoder, (req, res) => {
         name: req.session.name,
         currdate : currdate,
         loggedin : req.session.loggedin,
+        
     });
 
 
@@ -60,7 +61,7 @@ router.post("/submitpost", urlencoder, (req, res) => {
               if(err){
                   console.log(err);
               }else{
-                  res.redirect('/')
+                  res.redirect('/posts')
               console.log("Submitting post");
                   
               }
@@ -166,5 +167,62 @@ router.post("/approve", urlencoder, (req, res) => {
   console.log("post approval");
 
 });
+
+//edit post
+router.post("/editpost", urlencoder, (req, res) => {
+    let textbody = req.body.bodytext;
+
+    ACases.deleteOne({textbody: textbody}, function(err){
+           
+        console.log("deleted");
+       });
+
+    res.render("editpost.ejs",{
+        name: req.session.name,
+        currdate : currdate,
+        loggedin : req.session.loggedin,
+        body: textbody,
+    });
+
+  console.log("creating post");
+
+  
+});
+
+
+//upd post
+router.post("/updpost", urlencoder, (req, res) => {
+    let name = req.session.name;
+    let email = req.session.email;
+    let body = req.body.body;
+  
+    User.findOne({textbody: body}, function(err, Caseszxc){
+        if(err)
+            console.log(err);
+  
+
+            var CasesP = new ACases({
+                email: email,
+                name: name,
+                date: currdate,
+                textbody: body,
+  
+            })
+            CasesP.save(function(err){
+                if(err){
+                    console.log(err);
+                }else{
+                    res.redirect('/posts')
+                console.log("Submitting post");
+                    
+                }
+            })
+        });
+  
+  
+    console.log("submitting post");
+  
+    
+  });
 
 module.exports = router;

@@ -148,15 +148,12 @@ app.use(
                               password: "123",
                               email: "NikSer@gmail.com",
                               role: "User"},
-          ]);
+          ])
         
                               
           console.log("Admin+user data is added");
 
-      }
-
-  });
-
+          
   ACases.findOne({textbody: "I currently have a fever and just tested positive on my swab test."}, function(err,datacase){
     if(!datacase){
       ACases.insertMany([
@@ -185,7 +182,7 @@ app.use(
                            name: "Joe Pay",
                            date:20191220, 
                            textbody:"What if my health comes back? I would like to believe that I'll get better."},
-       ]);
+       ])
     }
   });
 
@@ -217,9 +214,13 @@ app.use(
                            name: "Joe Pay",
                            date:20211220, 
                            textbody:"SpaghettingPababa"},
-       ]);
+       ])
     }
   });
+      }
+
+  });
+
  });
 sampleData();
 module.exports = router;
