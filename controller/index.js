@@ -117,7 +117,7 @@ app.use(
  const sampleData = ((req,res) =>{   
         
         
-  User.findOne({name: "admin"}, function(err, data){
+  User.findOne({name:"admin"}, function(err, data){
       if(!data){
 
           //the password of sample accounts is 12345678

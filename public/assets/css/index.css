@@ -53,10 +53,10 @@ th,tr{
   border-radius: 10px;
   padding: 4px;
 }
-
+/* 
 .weeklydatacont td:hover{
   background-color:goldenrod;
-}
+} */
 .weeklydatacont tr{
   border-spacing: 50px;
 }
