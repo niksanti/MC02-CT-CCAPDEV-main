@@ -28,10 +28,6 @@ var records = new mongoose.Schema({
         required: true
     },
 
-    addadm:{
-        type: Number,
-        required: true
-    },
 
 });
 

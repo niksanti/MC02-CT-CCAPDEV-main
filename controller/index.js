@@ -14,6 +14,8 @@ const urlencoder = bodyparser.urlencoded({
 
 router.use("/users", require("./users"));
 router.use("/cases", require("./cases"));
+router.use("/covidnum", require("./covidnum"));
+
 
 
 const User = require("../models/usersModel");
@@ -36,10 +38,7 @@ router.get("/", function (req, res) {
 
 router.get("/daily", function (req, res) {
  
-
-    res.render("daily.ejs",{
-      loggedin : req.session.loggedin,
-    });
+  res.redirect("../covidnum/getdata")
     console.log("dailycheck");
 
 });

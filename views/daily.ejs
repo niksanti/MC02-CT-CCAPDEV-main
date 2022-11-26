@@ -81,14 +81,14 @@
                 <!-- GRAPH DAILY-->
                 <canvas id="myChart" style="width:100%;max-width:600px;margin:auto"></canvas>
                 <script>
-                    var xValues = ['26/09/22','27/09/22','29/09/22','30/09/22','01/10/22','02/10/22'];
+                    var xValues = ['<%= CovidNum[0].date %>','<%= CovidNum[1].date %>','<%= CovidNum[2].date %>','<%= CovidNum[3].date %>','<%= CovidNum[4].date %>','<%= CovidNum[5].date %>'];
                     
                     new Chart("myChart", {
                     type: "line",
                     data: {
                         labels: xValues,
                         datasets: [{ 
-                        data: [37082,38315,28172,29118,29528,28872],
+                        data: ['<%= CovidNum[0].addcases %>','<%= CovidNum[1].addcases %>','<%= CovidNum[2].addcases %>','<%= CovidNum[3].addcases %>','<%= CovidNum[4].addcases %>','<%= CovidNum[5].addcases %>'],
                         borderColor: "red",
                         fill: false
                       
@@ -108,22 +108,22 @@
                     <table class="inline">
                         <tr>
                             <th> Current daily additional cases:</th>
-                            <td> 1,000 </td>
+                            <td> <%= CovidNum[0].addcases %></td>
                         </tr>
     
                         <tr>
                             <th> Current daily additional death:</th>
-                            <td> 56 </td>
+                            <td> <%= CovidNum[0].adddeath %> </td>
                         </tr>
     
                         <tr>
                             <th> Current daily additional recoveries:</th>
-                            <td> 3,000 </td>
+                            <td> <%= CovidNum[0].addrecoveries %></td>
                         </tr>
     
                         <tr>
                             <th> Current daily additional Severe and Critical cases:</th>
-                            <td> 3 </td>
+                            <td><%= CovidNum[0].addsevere %> </td>
                         </tr>
     
     
@@ -135,22 +135,26 @@
                        
                         <tr>
                             <th> Previous daily additional cases:</th>
-                            <td> 2,000 </td>
+                            <td> <%= CovidNum[1].addcases %></td>
+
                         </tr>
     
                         <tr>
                             <th> Previous daily additional death:</th>
-                            <td> 30 </td>
+                            <td> <%= CovidNum[1].adddeath %> </td>
+
                         </tr>
     
                         <tr>
                             <th> Previous daily additional recoveries:</th>
-                            <td> 2,000 </td>
+                            <td> <%= CovidNum[1].addrecoveries %></td>
+
                         </tr>
     
                         <tr>
                             <th> Previous daily additional Severe and Critical cases:</th>
-                            <td> 5 </td>
+                            <td><%= CovidNum[1].addsevere %> </td>
+
                         </tr>
     
                     </table>
@@ -180,8 +184,6 @@
                 <td > NATIONAL COVID-19 CASE BULLETIN OCTOBER 8, 2022 </td>
                 <td > NATIONAL COVID-19 CASE BULLETIN OCTOBER 9, 2022 </td>
                 <td > NATIONAL COVID-19 CASE BULLETIN OCTOBER 10, 2022 </td>
-
-
             </tr>
         </table>
     </div>
