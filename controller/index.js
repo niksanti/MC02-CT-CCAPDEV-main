@@ -30,11 +30,11 @@ router.get("/", function (req, res) {
 
 
 
-  CovidNum.find({}, function(err, rows) {
+  CovidNum.find({}).sort({date: -1}).exec(function(err, rows) {
     if (err){
       console.log(err);
     }else {
-      CovidNumW.find({}, function(err, rowsc) {
+      CovidNumW.find({}).sort({date: -1}).exec(function(err, rowsc) {
       if (err){
           console.log(err);
       } else {
@@ -67,7 +67,7 @@ router.get("/daily", function (req, res) {
 
 router.get("/weekly", function (req, res) {
   
-  CovidNumW.find({}, function(err, rows) {
+  CovidNumW.find({}).sort({date: -1}).exec(function(err, rows) {
     if (err){
         console.log(err);
     } else {
@@ -153,6 +153,16 @@ router.get("/signout", urlencoder, (req, res) => {
 });
 
 
+
+router.get("/about", function (req, res) {
+  
+      res.render("about", {
+        loggedin:req.session.loggedin,
+        role : req.session.role,
+
+      });
+  });
+ 
 
 app.use(
   bodyparser.urlencoded({

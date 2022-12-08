@@ -80,7 +80,7 @@ router.get("/covidnumtest", urlencoder, (req, res) => {
 
 //covidnumber choosing
 router.get("/getdata", urlencoder, (req, res) => {
-    CovidNum.find({}, function(err, rows) {
+  CovidNum.find({}).sort({date: -1}).exec(function(err, rows) {
       if (err){
           console.log(err);
       } else {
