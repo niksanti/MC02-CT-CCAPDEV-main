@@ -51,6 +51,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/posts" style="color:black">New Cases</a>
                         </li>
+                       <% if(role == "Admin") { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin" style="color:black">Admin</a>
+                            </li>
+                            <% }%>
                     </ul>
     
                     <ul class="navbar-nav ms-auto">
@@ -72,14 +77,14 @@
                 <!-- GRAPH DAILY-->
                 <canvas id="myChart" style="width:100%;max-width:600px;margin:auto"></canvas>
                 <script>
-                    var xValues = ['26/09/22','27/09/22','29/09/22','30/09/22','01/10/22','02/10/22'];
+                    var xValues = ['<%= CovidNum[0].date %>','<%= CovidNum[1].date %>','<%= CovidNum[2].date %>','<%= CovidNum[3].date %>','<%= CovidNum[4].date %>','<%= CovidNum[5].date %>'];
                     
                     new Chart("myChart", {
                     type: "line",
                     data: {
                         labels: xValues,
                         datasets: [{ 
-                        data: [123,1223,523,253,152,123],
+                            data: ['<%= CovidNum[0].addcases %>','<%= CovidNum[1].addcases %>','<%= CovidNum[2].addcases %>','<%= CovidNum[3].addcases %>','<%= CovidNum[4].addcases %>','<%= CovidNum[5].addcases %>'],
                         borderColor: "red",
                         fill: false
                      
@@ -97,22 +102,22 @@
                <table class="inline">
                 <tr>
                     <th> Current daily additional cases:</th>
-                    <td> 123 </td>
+                    <td> <%= CovidNum[0].addcases %></td>
                 </tr>
-    
+
                 <tr>
                     <th> Current daily additional death:</th>
-                    <td> 213 </td>
+                    <td> <%= CovidNum[0].adddeath %> </td>
                 </tr>
-    
+
                 <tr>
                     <th> Current daily additional recoveries:</th>
-                    <td> 546 </td>
+                    <td> <%= CovidNum[0].addrecoveries %></td>
                 </tr>
-    
+
                 <tr>
                     <th> Current daily additional Severe and Critical cases:</th>
-                    <td> 123 </td>
+                    <td><%= CovidNum[0].addsevere %> </td>
                 </tr>
     
     
@@ -121,25 +126,28 @@
             
             <!-- previous daily -->
             <table class="inline">
-               
                 <tr>
                     <th> Previous daily additional cases:</th>
-                    <td> 1223 </td>
+                    <td> <%= CovidNum[1].addcases %></td>
+
                 </tr>
-    
+
                 <tr>
                     <th> Previous daily additional death:</th>
-                    <td> 213 </td>
+                    <td> <%= CovidNum[1].adddeath %> </td>
+
                 </tr>
-    
+
                 <tr>
                     <th> Previous daily additional recoveries:</th>
-                    <td> 1546 </td>
+                    <td> <%= CovidNum[1].addrecoveries %></td>
+
                 </tr>
-    
+
                 <tr>
                     <th> Previous daily additional Severe and Critical cases:</th>
-                    <td> 123 </td>
+                    <td><%= CovidNum[1].addsevere %> </td>
+
                 </tr>
     
             </table>
@@ -150,14 +158,14 @@
                 <!-- GRAPH WEEKLY-->
                 <canvas id="myChart2" style="width:100%;max-width:600px;margin:auto"></canvas>
                 <script>
-                    var xValuesz = ['26/09/22','27/09/22','29/09/22','30/09/22','01/10/22','02/10/22'];
+                var xValuesz = ['<%= CovidNumW[0].weeknum %>','<%= CovidNumW[1].weeknum %>','<%= CovidNumW[2].weeknum %>','<%= CovidNumW[3].weeknum %>','<%= CovidNumW[4].weeknum %>','<%= CovidNumW[5].weeknum %>'];
                     
                     new Chart("myChart2", {
                     type: "line",
                     data: {
                         labels: xValuesz,
                         datasets: [{ 
-                        data: [37082,38315,28172,29118,29528,28872],
+                            data: ['<%= CovidNumW[0].addcases %>','<%= CovidNumW[1].addcases %>','<%= CovidNumW[2].addcases %>','<%= CovidNumW[3].addcases %>','<%= CovidNumW[4].addcases %>','<%= CovidNumW[5].addcases %>'],
                         borderColor: "red",
                         fill: false
                       
@@ -173,22 +181,23 @@
                     <table class="inline">
                         <tr>
                             <th> Current week's additional cases:</th>
-                            <td> 13,000 </td>
+                            <td> <%= CovidNumW[0].addcases %></td>
                         </tr>
+                        
     
                         <tr>
                             <th> Current week's additional death:</th>
-                            <td> 100 </td>
+                            <td> <%= CovidNum[0].adddeath %></td>
                         </tr>
     
                         <tr>
                             <th> Current week's additional recoveries:</th>
-                            <td> 13,000 </td>
+                            <td> <%= CovidNum[0].addrecoveries %></td>
                         </tr>
     
                         <tr>
                             <th> Current week's additional Severe and Critical cases:</th>
-                            <td> 13 </td>
+                            <td> <%= CovidNum[0].addsevere %></td>
                         </tr>
     
                       
@@ -200,22 +209,22 @@
                        
                         <tr>
                             <th> Previous week's additional cases:</th>
-                            <td> 10,000 </td>
+                            <td> <%= CovidNumW[1].addcases %></td>
                         </tr>
     
                         <tr>
                             <th> Previous week's additional death:</th>
-                            <td> 200 </td>
+                            <td> <%= CovidNumW[1].adddeath %></td>
                         </tr>
     
                         <tr>
                             <th> Previous week's additional recoveries:</th>
-                            <td> 13,500 </td>
+                            <td> <%= CovidNumW[1].addrecoveries %></td>
                         </tr>
     
                         <tr>
                             <th> Previous week's additional Severe and Critical cases:</th>
-                            <td> 10 </td>
+                            <td> <%= CovidNumW[1].addsevere %></td>
                         </tr>
     
                    
@@ -226,7 +235,7 @@
             <% if (loggedin) { %>
             <div class="new_entry">
                 <h2>Register a New Case Below</h2>
-                <a href="/posts" class="btn btn-warning">COVID-19 Form</a>
+                <a href="../covidnum/covidnumtest" class="btn btn-warning">COVID-19 Form</a>
             </div>
             <% } %>
             <br>

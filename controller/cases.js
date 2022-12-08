@@ -4,6 +4,10 @@ const router = express.Router();
 const User = require("../models/usersModel");
 const Cases = require("../models/caseModel");
 const ACases = require("../models/approvedcaseModel");
+const CovMod = require("../models/covidnumModel");
+const CovModW = require("../models/covidnumModel-weekly");
+
+
 
 
 
@@ -19,6 +23,9 @@ date_ob = new Date();
 let date = ("0" + date_ob.getDate()).slice(-2);
 let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
 let year = date_ob.getFullYear();
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
 let currdate = month+"/" + date+"/" + year ;
 
@@ -224,5 +231,72 @@ router.post("/updpost", urlencoder, (req, res) => {
   
     
   });
+
+
+
+  router.post("/search", urlencoder, (req, res) => {
+    let searchdate = req.body.searchdate;
+    console.log(searchdate);
+    CovMod.findOne({date: searchdate}, function(err, Caseszxc){
+        if(err){
+            console.log(err);
+        }
+        else if(Caseszxc){
+        res.render('daily-results.ejs', {
+            loggedin : req.session.loggedin,
+            role : req.session.role,
+            
+            CovidNum : Caseszxc,
+          });
+          console.log(Caseszxc);
+        }
+        else
+        res.render('daily-results-invalid.ejs', {
+            loggedin : req.session.loggedin,
+            role : req.session.role,
+            
+        });
+        
+  
+      
+  
+    console.log("submitting post");
+    console.log("post approval");
+  
+  });
+});
+
+
+router.post("/searchweek", urlencoder, (req, res) => {
+    let weeknum = req.body.searchweek;
+ 
+    CovModW.findOne({weeknum: weeknum}, function(err, Caseszxc){
+        if(err){
+            console.log(err);
+        }
+        else if(Caseszxc){
+        res.render('weekly-results.ejs', {
+            loggedin : req.session.loggedin,
+            role : req.session.role,
+            month: monthNames[month-1],
+            CovidNumW : Caseszxc,
+          });
+          console.log(Caseszxc);
+        }
+        else
+        res.render('daily-results-invalid.ejs', {
+            loggedin : req.session.loggedin,
+            role : req.session.role,
+            
+        });
+        
+  
+      
+  
+    console.log("submitting post");
+    console.log("post approval");
+  
+  });
+});
 
 module.exports = router;

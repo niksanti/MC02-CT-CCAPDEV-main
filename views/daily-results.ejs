@@ -80,91 +80,33 @@
             </nav>
     <!-- NAVBAR -->
     <!-- <div class="container"> -->
-    <div class="row">
-            <div class="column">
-                <H1 style="text-align: center"> Daily Cases for <%= CovidNum[0].date %> </H1>
-                <!-- GRAPH DAILY-->
-                <canvas id="myChart" style="width:100%;max-width:600px;margin:auto"></canvas>
-                <script>
-                    var xValues = ['<%= CovidNum[0].date %>','<%= CovidNum[1].date %>','<%= CovidNum[2].date %>','<%= CovidNum[3].date %>','<%= CovidNum[4].date %>','<%= CovidNum[5].date %>'];
-                    
-                    new Chart("myChart", {
-                    type: "line",
-                    data: {
-                        labels: xValues,
-                        datasets: [{ 
-                        data: ['<%= CovidNum[0].addcases %>','<%= CovidNum[1].addcases %>','<%= CovidNum[2].addcases %>','<%= CovidNum[3].addcases %>','<%= CovidNum[4].addcases %>','<%= CovidNum[5].addcases %>'],
-                        borderColor: "red",
-                        fill: false
-                      
-                        }]
-                    },
-                    options: {
-                        legend: {display: false}
-                    }
-                    });
-                    </script>
-                <!-- GRAPH DAILY-->
-            </div>
+<div>
+    <H1 style="text-align: center"> Daily Cases for <%= CovidNum.date %> </H1>
 
-            <div class="column">
-                <h1 style="text-align:left"> Data Analysis </h1>
-                    <!-- current daily -->
-                    <table class="inline">
-                        <tr>
-                            <th> Current daily additional cases:</th>
-                            <td> <%= CovidNum[0].addcases %></td>
-                        </tr>
-    
-                        <tr>
-                            <th> Current daily additional death:</th>
-                            <td> <%= CovidNum[0].adddeath %> </td>
-                        </tr>
-    
-                        <tr>
-                            <th> Current daily additional recoveries:</th>
-                            <td> <%= CovidNum[0].addrecoveries %></td>
-                        </tr>
-    
-                        <tr>
-                            <th> Current daily additional Severe and Critical cases:</th>
-                            <td><%= CovidNum[0].addsevere %> </td>
-                        </tr>
-    
-    
-    
-                    </table>
-                    
-                    <!-- previous daily -->
-                    <table class="inline" >
-                       
-                        <tr>
-                            <th> Previous daily additional cases:</th>
-                            <td> <%= CovidNum[1].addcases %></td>
+            <table class="inline" style="margin:auto">
+                <tr>
+                    <th> Current daily additional cases:</th>
+                    <td> <%= CovidNum.addcases %></td>
+                </tr>
 
-                        </tr>
-    
-                        <tr>
-                            <th> Previous daily additional death:</th>
-                            <td> <%= CovidNum[1].adddeath %> </td>
+                <tr>
+                    <th> Current daily additional death:</th>
+                    <td> <%= CovidNum.adddeath %> </td>
+                </tr>
 
-                        </tr>
-    
-                        <tr>
-                            <th> Previous daily additional recoveries:</th>
-                            <td> <%= CovidNum[1].addrecoveries %></td>
+                <tr>
+                    <th> Current daily additional recoveries:</th>
+                    <td> <%= CovidNum.addrecoveries %></td>
+                </tr>
 
-                        </tr>
-    
-                        <tr>
-                            <th> Previous daily additional Severe and Critical cases:</th>
-                            <td><%= CovidNum[1].addsevere %> </td>
+                <tr>
+                    <th> Current daily additional Severe and Critical cases:</th>
+                    <td><%= CovidNum.addsevere %> </td>
+                </tr>
 
-                        </tr>
-    
-                    </table>
-            </div>
-            
+
+
+            </table>
         <!-- row div -->
     <!-- end of row 1 -->
     </div>
@@ -176,16 +118,12 @@
     <br>
     <br>
 
-    <form action="../cases/search" method="post" style="width:350px;margin:auto" >
+
+    <form action="../cases/search" method="post" style="width:150px;margin:auto" >
         View day data:
-        <br>
     <input type="date" name="searchdate">
         <button  class="btn btn-warning" > Search Data </button>
-        <br>
-        *Note: Only some of the current month's data is available
-       
     </form>
-
 
 
     <br>

@@ -52,6 +52,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/posts" style="color:black">New Cases</a>
                     </li>
+                    <% if(role == "Admin") { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin" style="color:black">Admin</a>
+                        </li>
+                        <% }%>
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
@@ -74,16 +79,16 @@
             <!-- GRAPH WEEKLY-->
             <canvas id="myChart2" style="width:100%;max-width:600px;margin:auto"></canvas>
             <script>
-                var xValuesz = ['26/09/22','27/09/22','29/09/22','30/09/22','01/10/22','02/10/22'];
-                
-                new Chart("myChart2", {
-                type: "line",
-                data: {
-                    labels: xValuesz,
-                    datasets: [{ 
-                    data: [37082,38315,28172,29118,29528,28872],
-                    borderColor: "red",
-                    fill: false
+            var xValuesz = ['<%= CovidNumW[0].weeknum %>','<%= CovidNumW[1].weeknum %>','<%= CovidNumW[2].weeknum %>','<%= CovidNumW[3].weeknum %>','<%= CovidNumW[4].weeknum %>','<%= CovidNumW[5].weeknum %>'];
+                    
+                    new Chart("myChart2", {
+                    type: "line",
+                    data: {
+                        labels: xValuesz,
+                        datasets: [{ 
+                            data: ['<%= CovidNumW[0].addcases %>','<%= CovidNumW[1].addcases %>','<%= CovidNumW[2].addcases %>','<%= CovidNumW[3].addcases %>','<%= CovidNumW[4].addcases %>','<%= CovidNumW[5].addcases %>'],
+                        borderColor: "red",
+                        fill: false
                  
                     }]
                 },
@@ -101,26 +106,26 @@
                 <table class="inline">
                     <tr>
                         <th> Current week's additional cases:</th>
-                        <td> 13,000 </td>
+                        <td> <%= CovidNumW[0].addcases %></td>
                     </tr>
+                    
 
                     <tr>
                         <th> Current week's additional death:</th>
-                        <td> 100 </td>
+                        <td> <%= CovidNumW[0].adddeath %></td>
                     </tr>
 
                     <tr>
                         <th> Current week's additional recoveries:</th>
-                        <td> 13,000 </td>
+                        <td> <%= CovidNumW[0].addrecoveries %></td>
                     </tr>
 
                     <tr>
-                        <th> Current week's additional severe and critical cases:</th>
-                        <td> 13 </td>
+                        <th> Current week's additional Severe and Critical cases:</th>
+                        <td> <%= CovidNumW[0].addsevere %></td>
                     </tr>
 
-             
-
+                  
 
                 </table>
                 
@@ -129,24 +134,23 @@
                    
                     <tr>
                         <th> Previous week's additional cases:</th>
-                        <td> 10,000 </td>
+                        <td> <%= CovidNumW[1].addcases %></td>
                     </tr>
 
                     <tr>
                         <th> Previous week's additional death:</th>
-                        <td> 200 </td>
+                        <td> <%= CovidNumW[1].adddeath %></td>
                     </tr>
 
                     <tr>
                         <th> Previous week's additional recoveries:</th>
-                        <td> 13,500 </td>
+                        <td> <%= CovidNumW[1].addrecoveries %></td>
                     </tr>
 
                     <tr>
-                        <th> Previous week's additional severe and critical cases:</th>
-                        <td> 10 </td>
+                        <th> Previous week's additional Severe and Critical cases:</th>
+                        <td> <%= CovidNumW[1].addsevere %></td>
                     </tr>
-
                 
                 </table>
         </div>
@@ -160,14 +164,16 @@
     <br>
     <br>
 
-   
-    <div class="weeklydatacont">
-        <table>
-            <tr>
-                <td >  BULLETIN IS UNDER MAINTENANCE</td>
-            </tr>
-        </table>
-    </div>
+    <form action="../cases/searchweek" method="post" style="width:350px;margin:auto" >
+        View weekly data:
+        <br>
+    <input type="number" name="searchweek">
+        <button  class="btn btn-warning" > Search Data </button>
+        <br>
+        *Note: Only some of the current month's data is available
+       
+    </form>
+
 
     <br>
     <br>
