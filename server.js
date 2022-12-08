@@ -1,14 +1,17 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser'); 
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 
 const router = express.Router();
 const session = require("express-session");
 
+// const passport = require("passport");
+// const passportLocalMongoose = require("passport-local-mongoose");
 
-const app = express()
+
+const app = express();
 
 app.use(
   session({
@@ -21,6 +24,10 @@ app.use(
   })
 );
 
+// initialize passport (new)
+//app.use(passport.initialize());
+//app.use(passport.session());
+
 
 app.set('views', './views');
 app.set('view engine','ejs');
@@ -32,8 +39,19 @@ app.use('/public', express.static('public'));
 // access controller folder
 app.use(require("./controller"));
 
-
+// connects to the mongoose database
 mongoose.connect("mongodb+srv://Chants:marcoi06@covidtrack.exyg6bg.mongodb.net/CovidApp", {useNewUrlParser: true});
+
+// uses plugin of LocalMongoose (new)
+// userAccount.plugin(passportLocalMongoose);
+
+// passport.use(User.createStrategy());
+
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+
+
+
 
 
 app.set("view engine", "ejs");
