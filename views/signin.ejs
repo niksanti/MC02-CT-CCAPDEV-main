@@ -61,6 +61,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="/posts" style="color:black">New Cases</a>
               </li>
+              <% if(role == "Admin") { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin" style="color:black">Admin</a>
+                </li>
+                <% }%>
           </ul>
 
 

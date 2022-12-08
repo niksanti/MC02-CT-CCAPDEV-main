@@ -70,10 +70,7 @@ router.post("/login", urlencoder, (req, res) => {
             req.session.email = Users.email;
             req.session.loggedin = "true";
             req.session.role = Users.role;
-            res.render("index.ejs",{
-                loggedin : req.session.loggedin,
-                user : "Sign out",
-              });
+            res.redirect("/");
             }
         } else {
         console.log("login fail ");

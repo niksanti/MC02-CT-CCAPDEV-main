@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+<div class="container">
+
+  <form action="../covidnum/adddata" method="post">
+    <div class="form-group">
+      <label for="cases">Date:</label>
+      <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+    <div class="form-group">
+      <label for="cases">Additional Cases:</label>
+      <input type="number" class="form-control" id="addcases"name="addcases" required>
+    </div>
+    <div class="form-group">
+      <label for="death">Additional Deaths:</label>
+      <input type="number" class="form-control" id="adddeath" name="adddeath" required>
+    </div>
+    <div class="form-group">
+      <label for="rec">Additional Recoveries:</label>
+      <input type="number" class="form-control" id="addrec" name="addrec" required>
+    </div>
+    <div class="form-group">
+      <label for="sev">Additional Severe Cases:</label>
+      <input type="number" class="form-control" id="addsev" name="addsev" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+ 
+</body>
+</html>

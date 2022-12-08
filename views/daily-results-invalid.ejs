@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <Title> Newest Cases</Title>
+        <Title> Daily Report</Title>
         <link rel="icon" type="image/x-icon" href="/public/assets/images/dlsu-icon.ico">
 
         <!-- BOOTSTRAP -->
@@ -32,7 +32,7 @@
     <!-- SPACE -->
     
     <body>
-    <div id="page-container">
+        <div id="page-container">
 
     <!-- NAVBAR -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,14 +49,15 @@
                         <a class="nav-link" href="/" style="color:black">Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/daily" style="color:black">Daily</a>
-                            </li>
+                            <a class="nav-link" href="/daily" style="color:black">Daily </a>
+
+                        </li>
                         <li class="nav-item">
                         <a class="nav-link" href="/weekly" style="color:black">Weekly</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" >New Cases<span class="sr-only">(current)</span></a>
-                        </li>   
+                            <a class="nav-link" href="/posts" style="color:black">New Cases</a>
+                        </li>
                         <% if(role == "Admin") { %>
                             <li class="nav-item">
                                 <a class="nav-link" href="/admin" style="color:black">Admin</a>
@@ -80,33 +81,30 @@
             </nav>
     <!-- NAVBAR -->
     <!-- <div class="container"> -->
+    <h1>No data is found.</h1>
+    <h2>Please proceed to navigate through the other pages through the navigation bar.</h2>
 
-    <div class="posts-row">
-            <div class="post">
-                <h1 class="post_title"> Newest COVID-19 Cases</h1>
-                <div class="content">
-                    <form action="../cases/updpost" method="POST">
-                    <h3><%= name %></h3>
-                    <h6><%= currdate%></h6>
-                    <hr>
-                    <textarea cols="120" rows="6" id="body" name="body"><%= body %></textarea>
-                    <br>
-                    <button class="btn btn-warning"> Update </button>
-                    </form>
-                </div>
-        </div>
-        </div>
-    <br>
     <br>
     <br>
     <br>
 
+    <br>
+    <br>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="footer">
         Copyright©2022. All Rights Reserved SanSerSan | Manila PH
     </div>
-</div>
+<!-- </div> -->
+    </div>
 
+   
+    
     </body>
-    <script src="js/entry.js"></script>
+    <script src="js/index.js"></script>
 
 </html>
