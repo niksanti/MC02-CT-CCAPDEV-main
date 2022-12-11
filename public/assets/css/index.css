@@ -7,6 +7,7 @@ body {
   overflow-x: hidden;
   background-color: papayawhip; 
   margin: 0 auto;
+  background-image: url(/public/assets/images/covid-bg.jpg);
 }
   /* Create two equal columns that floats next to each other */
 .column {
@@ -184,3 +185,4 @@ th,tr{
   border: 1px solid #888;
   width: max-content;
 }
+

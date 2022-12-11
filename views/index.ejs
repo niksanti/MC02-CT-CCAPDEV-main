@@ -29,6 +29,7 @@
 <body>
     <div id="page-container">
         <!-- NAVBAR -->
+        
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="/">
                     <img src="/public/assets/images/dlsu-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -43,16 +44,28 @@
                         <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="/daily" style="color:black">Daily</a>
+                        <a class="nav-link" href="/daily" style="color:black"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-event" viewBox="0 0 16 16">
+                            <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                            <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                          </svg>  Daily</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="/weekly" style="color:black">Weekly</a>
+                        <a class="nav-link" href="/weekly" style="color:black"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                          </svg> Weekly</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/posts" style="color:black">New Cases</a>
+                            <a class="nav-link" href="/posts" style="color:black"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
+                                <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
+                              </svg> New Cases</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about" style="color:black">About Us</a>
+                            <a class="nav-link" href="/about" style="color:black"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                              </svg> About Us</a>
                         </li>   
                        <% if(role == "Admin") { %>
                             <li class="nav-item">
@@ -72,8 +85,8 @@
                     </ul>
                     </div>
                 </nav>
+            
         <!-- NAVBAR -->
-    
         <div class="row">
             <div class="column">
                 <H1 style="text-align: center"> Daily Cases</H1>
@@ -100,7 +113,7 @@
                     </script>
                 <!-- GRAPH DAILY-->
     
-                <h1 style="text-align:left"> Data Analysis </h1>
+                <h1 style="text-align:left"> Daily Data Analysis </h1>
                <!-- current daily -->
                <table class="inline">
                 <tr>
@@ -154,8 +167,7 @@
                 </tr>
     
             </table>
-            </div>
-    
+            </div>   
             <div class="column">
                 <h1 style="text-align:center"> Weekly Cases </h1>
                 <!-- GRAPH WEEKLY-->
@@ -180,7 +192,7 @@
                     });
                     </script>
     
-                    <h1 style="text-align:left"> Data Analysis </h1>
+                    <h1 style="text-align:left"> Weekly Data Analysis </h1>
                     <table class="inline">
                         <tr>
                             <th> Current week's additional cases:</th>
@@ -232,9 +244,11 @@
     
                    
                     </table>
+        
                 <!-- GRAPH WEEKLY-->
             </div>
         </div>
+    
             <% if (loggedin) { %>
             <div class="new_entry">
                 <h2>Register a New Case Below</h2>
@@ -245,12 +259,13 @@
             <br>
             <br>
             <br>
-    
-            
+
+        
             <div class="footer">
                 Copyright©2022. All Rights Reserved SanSerSan | Manila PH
             </div>
         </div>
+    
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html>
