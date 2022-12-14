@@ -37,7 +37,7 @@ router.post("/create", urlencoder, (req, res) => {
         name: req.session.name,
         currdate : currdate,
         loggedin : req.session.loggedin,
-        
+        role : req.session.role,
     });
 
 

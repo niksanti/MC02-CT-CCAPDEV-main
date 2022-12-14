@@ -145,11 +145,6 @@ app.use(
   })
 );
 
-router.get("/sort", urlencoder, (req, res) => {
- 
-    res.redirect('/admin')
-  });
-
 
 //delete post
 router.get("/deletedata/:date",urlencoder, (req, res) => {

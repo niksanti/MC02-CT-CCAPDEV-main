@@ -74,6 +74,10 @@ router.post("/login", urlencoder, (req, res) => {
             }
         } else {
         console.log("login fail ");
+        res.render("signin.ejs", {
+            role : req.session.role,
+            err : 'Invalid Username/Password. Please try logging in again.',
+          });
 
         }
     });

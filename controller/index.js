@@ -106,13 +106,11 @@ router.get("/posts", function (req, res) {
 });
 
 router.get("/signin", function (req, res) {
-  
     res.render("signin.ejs", {
       role : req.session.role,
-
+      err : '',
     });
     console.log("sign in");
-
 });
 
 router.get("/admin", function (req, res) {
@@ -152,6 +150,23 @@ router.get("/signout", urlencoder, (req, res) => {
 
 });
 
+
+router.get("/adminweekly", function (req, res) {
+  CovidNum.find({}).sort({date: -1}).exec(function(err, docs) {
+    if (err){
+        console.log(err);
+    } else {
+      res.render("CovidChartData-weekly", {
+        loggedin:req.session.loggedin,
+        role : req.session.role,
+        CovidNum:docs,
+      });
+    }
+  });
+ 
+
+
+});
 
 
 router.get("/about", function (req, res) {

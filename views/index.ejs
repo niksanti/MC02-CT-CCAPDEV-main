@@ -248,24 +248,40 @@
                 <!-- GRAPH WEEKLY-->
             </div>
         </div>
-    
+        
             <% if (loggedin) { %>
             <div class="new_entry">
                 <h2>Register a New Case Below</h2>
-                <a href="../covidnum/covidnumtest" class="btn btn-warning">COVID-19 Form</a>
+                <a href="/posts" class="btn btn-warning">COVID-19 Form</a>
             </div>
             <% } %>
-            <br>
-            <br>
-            <br>
-            <br>
-
-        
+           
+            <div id="google_translate_element"></div>
+ 
+    
+         <br>
+         <br>
+         <br>
+         <br>
             <div class="footer">
                 Copyright©2022. All Rights Reserved SanSerSan | Manila PH
             </div>
         </div>
     
 </body>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'en'},
+            'google_translate_element'
+        );
+    }
+</script>
+
+<script type="text/javascript"
+        src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html>
