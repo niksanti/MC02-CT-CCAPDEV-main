@@ -90,8 +90,8 @@
         <!-- NAVBAR -->
         Weekly Cases:
         <br>
-        <a href="../covidnum/addcases" class="btn btn-sm btn-primary">Add Daily Covid Data</a>
-        <a href="../covidnum/adminweekly" class="btn btn-sm btn-primary">Go to weekly Covid Data</a><br/><br/>
+        <a href="../covidnum/addcasesweekly" class="btn btn-sm btn-primary">Add Weekly Covid Data</a>
+        <a href="/admin" class="btn btn-sm btn-primary">Go to Daily Covid Data</a><br/><br/>
         
         <table class="table table-dark table-striped">
             <thead>
@@ -100,13 +100,21 @@
                </tr>
             </thead>
             <tbody>
-                <% CovidNum.forEach(function(CovidNum){ %>
+                <% var i = 0; %>
+
+                <% CovidNumW.forEach(function(CovidNumW){ %>
+                    
+
                     <tr>
-                        <td><%= CovidNum.date %></td>
+                        <td><%= CovidNumW.weeknum %></td>
         
                         <td>
                             <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="../covidnum/deletedata/<%= CovidNum.date%>" class="btn btn-sm btn-danger">Delete</a>
+
+                            <%if (i>5) {%>
+                                <a href="../covidnum/deletedata/<%= CovidNumW.weeknum%>" class="btn btn-sm btn-danger">Delete</a>
+                            <%};%>
+                            <% i +=1;%>
                         </td>
                     </tr>
                 <% }); %>

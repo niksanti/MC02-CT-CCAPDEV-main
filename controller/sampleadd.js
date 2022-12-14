@@ -12,12 +12,6 @@ const urlencoder = bodyparser.urlencoded({
 });
 
 
-router.use("/users", require("./users"));
-router.use("/cases", require("./cases"));
-router.use("/covidnum", require("./covidnum"));
-
-
-
 const User = require("../models/usersModel");
 const ACases = require("../models/approvedcaseModel");
 const Cases = require("../models/caseModel");
@@ -26,169 +20,8 @@ const CovidNumW = require("../models/covidnumModel-weekly");
 
 
 
-
-router.get("/", function (req, res) {
-
-
-
-  CovidNum.find({}).sort({date: -1}).exec(function(err, rows) {
-    if (err){
-      console.log(err);
-    }else {
-      CovidNumW.find({}).sort({date: -1}).exec(function(err, rowsc) {
-      if (err){
-          console.log(err);
-      } else {
-          res.render('index.ejs', {
-              loggedin : req.session.loggedin,
-              CovidNum : rows,
-              email : req.session.email,
-              role : req.session.role,
-              CovidNumW : rowsc,
-          });
-      }
-      });
-  };
-  });
-
-    console.log("index");
-    // console.log(req.session.name);
-
-
-});
-
-
-router.get("/daily", function (req, res) {
- 
-  res.redirect("../covidnum/getdata")
-    console.log("dailycheck");
-
-});
-
-
-router.get("/weekly", function (req, res) {
-  
-  CovidNumW.find({}).sort({date: -1}).exec(function(err, rows) {
-    if (err){
-        console.log(err);
-    } else {
-      res.render("weekly.ejs",{
-        loggedin : req.session.loggedin,
-        role : req.session.role,
-        CovidNumW: rows,
-      });
-    }
-  });
-
-    console.log("weekly");
-
-});
-
-
-router.get("/posts", function (req, res) {
-
-  ACases.find({}, function(err, rows) {
-    if (err){
-        console.log(err);
-    } else {
-        res.render('posts', {
-            loggedin : req.session.loggedin,
-            cases : rows,
-            email : req.session.email,
-            role : req.session.role,
-        });
-    }
-  });
-    // res.render("posts.ejs",{
-
-    // });
-    console.log("posts");
-
-});
-
-router.get("/signin", function (req, res) {
-    res.render("signin.ejs", {
-      role : req.session.role,
-      err : '',
-    });
-    console.log("sign in");
-});
-
-router.get("/admin", function (req, res) {
-  CovidNum.find({}).sort({date: -1}).exec(function(err, docs) {
-    if (err){
-        console.log(err);
-    } else {
-      res.render("CovidChartData", {
-        loggedin:req.session.loggedin,
-        role : req.session.role,
-        CovidNum:docs,
-      });
-    }
-  });
- 
-
-
-});
-
-
-router.get("/register", function (req, res) {
-  res.render("register.ejs", {
-    error: '',
-    role : req.session.role,
-      
-  
-  });
-  console.log("register");
-
-});
-
-router.get("/signout", urlencoder, (req, res) => {
-  
-    res.redirect('/')
-    req.session.destroy();
-    console.log("index signout");
-
-});
-
-
-router.get("/adminweekly", function (req, res) {
-  CovidNumW.find({}).sort({weeknum: 1}).exec(function(err, docs) {
-    if (err){
-        console.log(err);
-    } else {
-      res.render("CovidChartData-weekly", {
-        loggedin:req.session.loggedin,
-        role : req.session.role,
-        CovidNumW:docs,
-      });
-    }
-  });
- 
-
-
-});
-
-
-router.get("/about", function (req, res) {
-  
-      res.render("about", {
-        loggedin:req.session.loggedin,
-        role : req.session.role,
-
-      });
-  });
- 
-
-app.use(
-  bodyparser.urlencoded({
-    extended: false,
-  })
-);
-
-
 // Add Sample Data
-const sampleData = ((req,res) =>{   
+ const sampleData = ((req,res) =>{   
         
         
   User.findOne({name:"admin"}, function(err, data){
@@ -296,6 +129,4 @@ const sampleData = ((req,res) =>{
 
  });
 
-
-
-module.exports = router;
+ module.exports = {sampleData};

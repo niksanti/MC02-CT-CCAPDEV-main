@@ -105,8 +105,14 @@ router.post("/adddata", urlencoder, (req, res) => {
 
 
   CovidNum.findOne({date: date}, function(err, Caseszxc){
-      if(err)
+      if(err){
           console.log(err);
+      } else if (Caseszxc){
+res.render('covid_add',{
+  err: 'Date Already Exists!',
+})
+
+      }else{
 
   
           var CasesD = new CovidNum({
@@ -126,6 +132,52 @@ router.post("/adddata", urlencoder, (req, res) => {
                   
               }
           })
+  }
+      });
+
+
+  console.log("submitting post");
+
+  
+});
+
+router.post("/adddataweekly", urlencoder, (req, res) => {
+  let weeknum = req.body.weeknum;
+  let cases = req.body.addcases;
+  let death = req.body.adddeath;
+  let rec = req.body.addrec;
+  let sev = req.body.addsev;
+
+
+
+  CovidNumW.findOne({weeknum: weeknum}, function(err, Caseszxc){
+      if(err){
+          console.log(err);
+      }else if (Caseszxc){
+        res.render('covid_add-weekly',{
+          err: 'Week number Already Exists!',
+        })
+      }else {
+
+  
+          var CasesD = new CovidNumW({
+              weeknum: weeknum,
+              addcases: cases,
+              adddeath: death,
+              addrecoveries: rec,
+              addsevere:sev,
+
+          })
+          CasesD.save(function(err){
+              if(err){
+                  console.log(err);
+              }else{
+                  res.redirect('/adminweekly')
+              console.log("Submitting data");
+                  
+              }
+          })
+  }
       });
 
 
@@ -135,10 +187,19 @@ router.post("/adddata", urlencoder, (req, res) => {
 });
 
 router.get("/addcases", urlencoder, (req, res) => {
-res.render('covid_add')
+  res.render('covid_add',{
+    err: '',
+  })
   
 });
 
+
+router.get("/addcasesweekly", urlencoder, (req, res) => {
+  res.render('covid_add-weekly',{
+    err: '',
+  })
+    
+  });
 app.use(
   bodyparser.urlencoded({
     extended: false,
@@ -151,12 +212,19 @@ router.get("/deletedata/:date",urlencoder, (req, res) => {
   
   const date = req.params.date;
   console.log(date);
-  
+  if ( Object.prototype.toString.call(date) === "[object Date]") {
+
   CovidNum.deleteOne({date: date}, function(err){
    console.log("deleted");
+   res.redirect('/admin')
   });
+  } else {
+  CovidNumW.deleteOne({weeknum: date}, function(err){
+    console.log("deleted weekly");
+    res.redirect('/adminweekly')
+   });
+  }
 
-  res.redirect('/admin')
 
   
   

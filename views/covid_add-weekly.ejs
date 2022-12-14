@@ -3,7 +3,7 @@
 <head>
   <head>
     <meta charset="utf-8">
-    <Title> Weekly Add Cases</Title>
+    <Title> Daily Add Cases</Title>
     <link rel="icon" type="image/x-icon" href="/public/assets/images/dlsu-icon.ico">
 
     <!-- BOOTSTRAP -->
@@ -34,8 +34,8 @@
 
   <form action="../covidnum/adddataweekly" method="post">
     <div class="form-group">
-      <label for="cases">Date:</label>
-      <input type="date" class="form-control" id="date" name="date" required>
+      <label for="cases">Week number:</label>
+      <input type="number" class="form-control" id="weeknum" name="weeknum" required>
     </div>
     <div class="form-group">
       <label for="cases">Additional Cases:</label>
@@ -53,6 +53,9 @@
       <label for="sev">Additional Severe Cases:</label>
       <input type="number" class="form-control" id="addsev" name="addsev" required>
     </div>
+
+    <p style="color:red"><%=err%></p>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   <a href="/adminweekly" class="btn btn-sm btn-primary">Go Back</a>

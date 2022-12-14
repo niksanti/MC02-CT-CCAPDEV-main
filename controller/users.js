@@ -22,13 +22,14 @@ router.post("/save", urlencoder, (req, res) => {
   var salt = bcrypt.genSaltSync(10)
   var hash = bcrypt.hashSync(password, salt);
 
-  User.findOne({email: email}, function(err, Users){
+  User.findOne({email: email,name:name}, function(err, Users){
       if(err)
           console.log(err);
 
       if(Users){
           res.render('register.ejs', {
-              error: 'Email has been already taken! Try Again!',
+            role: '',
+              error: 'Email/Username has been already taken! Try Again!',
           });
       }else{
           var Users = new User({

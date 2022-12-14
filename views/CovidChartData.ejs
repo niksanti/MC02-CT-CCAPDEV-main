@@ -100,13 +100,19 @@
                </tr>
             </thead>
             <tbody>
+                <% var i = 0; %>
                 <% CovidNum.forEach(function(CovidNum){ %>
                     <tr>
                         <td><%= CovidNum.date %></td>
         
                         <td>
                             <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="../covidnum/deletedata/<%= CovidNum.date%>" class="btn btn-sm btn-danger">Delete</a>
+
+                            <%if (i>5) {%>
+                                <a href="../covidnum/deletedata/<%= CovidNum.date%>" class="btn btn-sm btn-danger">Delete</a>
+                            <%};%>
+                    <% i ++;%>
+
                         </td>
                     </tr>
                 <% }); %>
