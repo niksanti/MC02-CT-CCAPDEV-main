@@ -32,10 +32,10 @@
  
 <div class="container">
 
-  <form action="../editdata " method="post">
+  <form action="../editdataweekly" method="post">
     <div class="form-group">
-      <label for="cases">Date:</label>
-      <input type="date" class="form-control" id="date" name="date" value="<%=covidnumdate%>" readonly="readonly" required>
+      <label for="cases">Week number:</label>
+      <input type="number" class="form-control" id="weeknum" name="weeknum" value="<%=covidnumdate%>" readonly="readonly" required>
     </div>
     <div class="form-group">
       <label for="cases">Additional Cases:</label>
@@ -55,7 +55,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <a href="/admin" class="btn btn-sm btn-primary">Go Back</a>
+  <a href="/adminweekly" class="btn btn-sm btn-primary">Go Back</a>
 </div>
 <div id="google_translate_element"></div>
  

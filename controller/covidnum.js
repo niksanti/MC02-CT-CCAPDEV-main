@@ -231,5 +231,91 @@ router.get("/deletedata/:date",urlencoder, (req, res) => {
 });
 
 
+//edit post
+router.post("/editdata",urlencoder, (req, res) => {
+  
+
+  const date = req.body.date;
+  console.log(date);
+  const query = { date: date };
+    const addcases = req.body.addcases;
+    const adddeath = req.body.adddeath;
+    const addrec = req.body.addrec;
+    const addsev = req.body.addsev;
+
+    CovidNum.updateOne(query, { addcases: addcases, adddeath: adddeath, addrecoveries: addrec,addsevere: addsev, }, function(err, result) {
+        if(err){
+            console.log(err);
+          } else {
+           res.redirect('/admin');
+          }
+        })
+  
+  
+});
+
+
+//edit post
+router.post("/editdataweekly",urlencoder, (req, res) => {
+  
+
+  const weeknum = req.body.weeknum;
+
+  const query = { weeknum: weeknum };
+    const addcases = req.body.addcases;
+    const adddeath = req.body.adddeath;
+    const addrec = req.body.addrec;
+    const addsev = req.body.addsev;
+
+    CovidNumW.updateOne(query, { addcases: addcases, adddeath: adddeath, addrecoveries: addrec,addsevere: addsev, }, function(err, result) {
+        if(err){
+            console.log(err);
+          } else {
+           res.redirect('/adminweekly');
+          }
+        })
+  
+  
+});
+
+
+
+//edit post
+router.get("/editdataren/:date",urlencoder, (req, res) => {
+  const date = new Date(req.params.date);
+  let day = date.getDate();
+  console.log(day); // 23
+  
+  let month = date.getMonth() + 1;
+  console.log(month + 1); // 8
+  
+  let year = date.getFullYear();
+  console.log(year); // 2022
+
+  let format4 = year + "-" + month + "-" + day;
+console.log(format4); // 23-7-2022
+
+  console.log(date + ' test')
+  res.render('covid_edit',{
+    err: '',
+    covidnumdate:format4,
+  })
+  
+});
+
+
+//edit post
+router.get("/editdatarenweekly/:weeknum",urlencoder, (req, res) => {
+  const date =req.params.weeknum;
+  
+  console.log(date + ' test')
+  res.render('covid_edit-weekly',{
+    err: '',
+    covidnumdate:date,
+  })
+  
+});
+
+
 
 module.exports = router;
