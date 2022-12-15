@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser'); 
@@ -12,6 +13,7 @@ const session = require("express-session");
 
 
 const app = express();
+const mongo = "mongodb+srv:" + process.env.DB_ACCESS;
 
 app.use(
   session({
@@ -40,7 +42,7 @@ app.use('/public', express.static('public'));
 app.use(require("./controller"));
 
 // connects to the mongoose database
-mongoose.connect("mongodb+srv://Chants:marcoi06@covidtrack.exyg6bg.mongodb.net/CovidApp", {useNewUrlParser: true});
+mongoose.connect(mongo, {useNewUrlParser: true});
 
 // uses plugin of LocalMongoose (new)
 // userAccount.plugin(passportLocalMongoose);
@@ -51,14 +53,10 @@ mongoose.connect("mongodb+srv://Chants:marcoi06@covidtrack.exyg6bg.mongodb.net/C
 // passport.deserializeUser(User.deserializeUser());
 
 
-
-
-
 app.set("view engine", "ejs");
 
 
 // Start  the server
-app.listen(3000,() => {
-    console.log("App is listening on port 3000..")
-
+app.listen(process.env.PORT || 3000, function() {
+    console.log("App is listening on port 3000..");
 })
